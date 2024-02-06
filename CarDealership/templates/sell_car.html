@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block text %}
+<h1>This page will help you to sell a car.</h1>
+<p>This is the car in turn to be sold:</p>
+<div class="bd-callout bd-callout-warning">
+<strong>Attention.</strong> Have in mind that you can only sell the oldest car in the inventory.
+</div>
+{% endblock %}
+
+{% block content %}
+<p></p>
+<h2>The car for sale:</h2>
+<strong>{{ car.make }} {{car.model }}</strong>
+<p>year of production: <strong>{{ car.year }}</strong> main body color: <strong>{{ car.color }}</strong></p>
+<td><img src="{{ car.pic }}"  height="350" width="500"></td>
+
+<form class="row g-3" method="post" action="/sell_car" style="max-width: 600px;">
+  <div class="mb-3">
+    <label for="inputName" class="form-label">Enter firstname and lastname</label>
+    <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Firstname Lastname">
+  </div>
+  <div class="mb-3">
+    <label for="inputAge" class="form-label">Enter age</label>
+    <input type="number" class="form-control" id="inputAge" name="inputAge" placeholder="your age">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary"
+            style="background-color: black; color: white; padding: 10px 20px; font-size: 16px;">Sell</button>
+  </div>
+</form>
+
+{% endblock %}

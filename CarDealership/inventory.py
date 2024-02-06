@@ -12,8 +12,9 @@ class Dealership:
         car = Car(make, model, year, color, img)
         self._available_cars.add(car)
 
-    def sell_car(self):
+    def sell_car(self, name, age):
         car = self._available_cars.get()
+        car.sell(name, age)
         self._sold_cars.append(car)
         return car.to_dict()
 
@@ -30,6 +31,5 @@ class Dealership:
         return None
 
 if __name__ == "__main__":
-    dlrs = Dealership()
-    dlrs.add_car()
+    pass
 

@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block text %}
+<h1>Add a new car</h1>
+<p>Here you can add a new car to our list of available cars</p>
+{% endblock %}
+
+{% block content %}
+<form method="post" action="/add_car">
+  <div class="mb-3" style="max-width: 300px;">
+    <label for="inputMake" class="form-label">Make</label>
+    <input type="text" class="form-control" id="inputMake" name="inputMake" aria-describedby="inputMake">
+  </div>
+  <div class="mb-3" style="max-width: 300px;">
+    <label for="inputModel" class="form-label">Model</label>
+    <input type="text" class="form-control" id="inputModel" name="inputModel" aria-describedby="inputModel">
+  </div>
+  <div class="mb-3" style="max-width: 300px;">
+    <label for="inputYear" class="form-label">Year</label>
+    <input type="number" class="form-control" id="inputYear" name="inputYear" aria-describedby="inputYear">
+  </div>
+  <div class="mb-3" style="max-width: 300px;">
+    <label for="inputColor" class="form-label">Color</label>
+    <input type="text" class="form-control" id="inputColor" name="inputColor" aria-describedby="inputColor">
+  </div>
+  <div class="mb-3" style="max-width: 300px;">
+    <label for="inputPicture" class="form-label">Picture</label>
+    <input type="url" class="form-control" id="inputPicture" name="inputPicture" aria-describedby="inputPicture">
+  </div>
+  <button type="submit" class="btn btn-primary"
+  style="background-color: black; color: white; padding: 10px 20px; font-size: 16px;">Add Car</button>
+</form>
+{% endblock%}
